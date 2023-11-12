@@ -13,11 +13,10 @@ all: $(NAME)
 
 
 clean:
-	cd libft && make clean
+	cd libft && make fclean
 	rm -rf $(OBJS)  $(BONUS_OBJS)
 
 fclean: clean
-	cd libft && make fclean
 	rm -rf $(NAME)
 
 re: fclean all
