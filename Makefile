@@ -13,8 +13,8 @@ all: $(NAME)
 
 
 clean:
-	rm -rf $(OBJS)  $(BONUS_OBJS)
 	cd libft && make fclean
+	rm -rf $(OBJS)  $(BONUS_OBJS)
 
 fclean: clean
 	rm -rf $(NAME)
@@ -25,7 +25,7 @@ re: fclean all
 %.o: %.c
 	$(CC) $(C_FLAGS) -c -o $@ $<
 
-$(NAME): $(OBJS) libft/libft.a  
+$(NAME):  libft/libft.a  $(OBJS)
 	$(AR) rc $@ $(OBJS) libft/*.o
 
 libft/libft.a:
