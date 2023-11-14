@@ -6,7 +6,7 @@
 /*   By: amajid <amajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:47:53 by amajid            #+#    #+#             */
-/*   Updated: 2023/11/12 13:14:01 by amajid           ###   ########.fr       */
+/*   Updated: 2023/11/13 15:16:42 by amajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-static long	handle3(va_list list, char *s, long *total)
+static long	handle3(va_list list, char *s, long *total, long *i)
 {
 	long	ret;
 
 	ret = handle_conversion(list, s - 1);
 	if (ret == -1)
 		return (-1);
+	if (ret != -2)
+		(*i)++;
 	*total += ret * (ret > 0);
 	return (0);
 }
@@ -68,7 +70,7 @@ static long	parse_until_per(const char *s, va_list list)
 			if (conver_help1(i, start, (char *)s, &total) == -1)
 				return (-1);
 		if (i && s[i - 1] == '%' && ((i - start) % 2) && s[i])
-			if (handle3(list, (char *)s + i++, &total) == -1)
+			if (handle3(list, (char *)s + i, &total, &i) == -1)
 				return (-1);
 		if (helper_last(&total, &i, (char *)s) == -1)
 			return (-1);

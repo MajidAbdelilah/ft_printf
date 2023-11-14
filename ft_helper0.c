@@ -6,7 +6,7 @@
 /*   By: amajid <amajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:41:03 by amajid            #+#    #+#             */
-/*   Updated: 2023/11/10 17:18:15 by amajid           ###   ########.fr       */
+/*   Updated: 2023/11/13 15:12:47 by amajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,5 @@ long	handle_conversion(va_list list, const char *s)
 		return (x(list));
 	else if (s[1] == 'X')
 		return (xx(list));
-	return (0);
+	return (-2);
 }
