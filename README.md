@@ -1,1 +1,1 @@
-the goal create a mini printf
+the goal create your own printf
